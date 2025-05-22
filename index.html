@@ -401,15 +401,18 @@
     <p>&copy; 2024 Aftab Khan</p>
   </footer>
   <script>
-    // Reveal sections on scroll
+    // Reveal sections on scroll (every time they enter the viewport)
     const sections = document.querySelectorAll("section");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
         }
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.2 });
+
     sections.forEach(section => observer.observe(section));
 
     // Add a little sparkle effect to the header
@@ -434,7 +437,7 @@
       setTimeout(() => { sparkle.remove(); }, 1300);
     }
     document.querySelector('header').addEventListener('mousemove', e => {
-      if (Math.random() < 0.16) // not too many sparkles
+      if (Math.random() < 0.16)
         createSparkle(e.clientX, e.clientY);
     });
   </script>
