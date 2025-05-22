@@ -1,98 +1,113 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aftab Khan Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aftab Khan's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
     }
     body {
+      font-family: 'Roboto', sans-serif;
       background: #0f0f0f;
-      color: #fff;
+      color: #f0f0f0;
       scroll-behavior: smooth;
     }
     header {
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      padding: 2rem;
+      background: linear-gradient(to right, #1f1f1f, #111);
+      padding: 2rem 1rem;
       text-align: center;
-      color: #fff;
+      color: #00ffe1;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
     nav {
-      display: flex;
-      justify-content: center;
-      background: #1e1e1e;
-      padding: 1rem;
+      background: #1a1a1a;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 999;
     }
     nav ul {
-      display: flex;
       list-style: none;
-      gap: 2rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 1rem;
     }
     nav ul li a {
-      color: #fff;
       text-decoration: none;
+      color: #00ffe1;
+      font-weight: bold;
       transition: color 0.3s;
     }
     nav ul li a:hover {
-      color: #00f7ff;
+      color: #ff7e5f;
     }
     section {
       padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .photo {
       width: 150px;
       height: 150px;
       border-radius: 50%;
       object-fit: cover;
-      margin: 0 auto 20px;
-      display: block;
-      border: 4px solid #00f7ff;
+      margin-bottom: 1rem;
     }
-    .card {
-      background: #1c1c1c;
-      padding: 2rem;
-      border-radius: 15px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 247, 255, 0.1);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: scale(1.03);
+    h2 {
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #00ffe1;
     }
     ul {
       list-style: none;
       padding: 0;
+      margin: 1rem auto;
+      max-width: 600px;
+      text-align: left;
     }
     ul li {
       margin-bottom: 0.5rem;
     }
     .project img {
       width: 100%;
+      max-width: 500px;
+      margin: 1rem auto;
+      display: block;
       border-radius: 10px;
     }
+    footer {
+      background: #1a1a1a;
+      padding: 2rem;
+      text-align: center;
+      color: #ccc;
+      margin-top: 3rem;
+    }
     a {
-      color: #00f7ff;
+      color: #00ffe1;
       text-decoration: none;
     }
     a:hover {
-      text-decoration: underline;
+      color: #ff7e5f;
     }
-    footer {
-      background: #1e1e1e;
-      text-align: center;
-      padding: 1.5rem;
-      margin-top: 3rem;
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -100,17 +115,19 @@
   <header>
     <h1>Aftab Khan</h1>
     <p>Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
-  </header>  <nav>
+  </header>
+  <nav>
     <ul>
       <li><a href="#about">About Me</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#resume">Resume</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>  <section id="about" class="card">
+  </nav>
+  <section id="about">
     <img src="Self.jpg" alt="Aftab Khan" class="photo">
     <h2>About Me</h2>
-    <p>I am a passionate data scientist with a B.Sc. in Data Science from the Viva College (Virar). My expertise includes data analysis, machine learning, and statistical modeling. I am driven by the challenge of solving complex problems and leveraging data to make informed decisions. In my spare time, I enjoy exploring new machine learning algorithms and contributing to open-source projects.</p>
+    <p>I am a passionate data scientist with a B.Sc. in Data Science from the Viva college (Virar). My expertise includes data analysis, machine learning, and statistical modeling. I am driven by the challenge of solving complex problems and leveraging data to make informed decisions.</p>
     <h3>Skills:</h3>
     <ul>
       <li><strong>Programming Languages:</strong> Python, R, SQL</li>
@@ -121,40 +138,52 @@
       <li><strong>Big Data Technologies:</strong> Hadoop, Spark</li>
       <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Flask</li>
       <li><strong>Version Control:</strong> Git, GitHub</li>
-      <li><strong>Soft Skills:</strong> Problem-solving, Communication, Teamwork</li>
     </ul>
-  </section>  <section id="projects">
+  </section>
+  <section id="projects">
     <h2>Projects</h2>
-    <div class="card">
+    <div class="project">
       <h3>Crypto Portfolio Management System</h3>
       <ul>
-        <li>Flask app to manage and track crypto investments.</li>
-        <li>CRUD operations with SQLite DB and Binance API integration.</li>
-        <li>Real-time visualizations using Matplotlib.</li>
+        <li>Developed a Flask web application to manage cryptocurrency investments.</li>
+        <li>Integrated live price data from Binance API.</li>
+        <li>Visualized portfolio distribution using Matplotlib.</li>
       </ul>
-      <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4?utm_source=share&utm_medium=member_desktop">Project Link</a>
+      <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4">View Project</a>
     </div>
-    <div class="card">
+    <div class="project">
       <h3>Customer Churn Prediction</h3>
       <ul>
-        <li>Flask ML app for predicting churn probability.</li>
-        <li>Login auth, joblib model loading, data transformation.</li>
-        <li>Prediction output with insights to users.</li>
+        <li>Built a Flask app to predict customer churn using ML model.</li>
+        <li>Used joblib, Flask-Login, and visualized predictions.</li>
       </ul>
       <img src="https://github.com/aftabakhan82/customer_churn/assets/87515168/897ae49d-adae-4366-ac6b-f57ed491b263" alt="Customer Churn Prediction">
     </div>
-  </section>  <section id="resume" class="card">
+  </section>
+  <section id="resume">
     <h2>Resume</h2>
-    <a href="resume.pdf" download>Download My Resume</a>
-  </section>  <section id="contact" class="card">
+    <a href="resume.pdf">Download My Resume</a>
+  </section>
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:aftabakhan82@gmail.com">aftabakhan82@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">linkedin.com/in/aftab-khan-133406219</a></p>
-  </section>  <footer>
-    <p>&copy; 2024 Aftab Khan</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">linkedin.com/in/aftab-khan</a></p>
+  </section>
+  <footer>
+    <p>&copy; 2024 Aftab Khan. All rights reserved.</p>
   </footer>  <script>
-    ScrollReveal().reveal('header', { delay: 100, distance: '50px', origin: 'top' });
-    ScrollReveal().reveal('nav', { delay: 200 });
-    ScrollReveal().reveal('.card', { interval: 200, distance: '40px', origin: 'bottom' });
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   </script></body>
 </html>
