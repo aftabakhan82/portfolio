@@ -1,189 +1,200 @@
 <!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aftab Khan's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #0f0f0f;
-      color: #f0f0f0;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(to right, #1f1f1f, #111);
-      padding: 2rem 1rem;
-      text-align: center;
-      color: #00ffe1;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    nav {
-      background: #1a1a1a;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    nav ul li {
-      margin: 1rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #00ffe1;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #ff7e5f;
-    }
-    section {
-      padding: 4rem 2rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1.2s ease, transform 1.2s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .photo {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-    }
-    h2 {
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      color: #00ffe1;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 1rem auto;
-      max-width: 600px;
-      text-align: left;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    .project img {
-      width: 100%;
-      max-width: 500px;
-      margin: 1rem auto;
-      display: block;
-      border-radius: 10px;
-    }
-    footer {
-      background: #1a1a1a;
-      padding: 2rem;
-      text-align: center;
-      color: #ccc;
-      margin-top: 3rem;
-    }
-    a {
-      color: #00ffe1;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #ff7e5f;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftab Khan's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #fff;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(90deg, #6e00ff, #985eff);
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        header h1 {
+            font-size: 2.5rem;
+        }
+        header p {
+            font-size: 1.2rem;
+        }
+        nav {
+            background: #1f1f1f;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 1rem;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #985eff;
+        }
+        section {
+            padding: 4rem 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            display: block;
+            border: 3px solid #985eff;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        ul.skills {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        ul.skills li {
+            margin-bottom: 0.5rem;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: #1f1f1f;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+        .project-card a {
+            color: #985eff;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #1f1f1f;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Aftab Khan</h1>
-    <p>Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
-  </header>
-  <nav>
+    <header>
+        <h1>Aftab Khan</h1>
+        <p>Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
+    </header><nav>
     <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#resume">Resume</a></li>
-      <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
-  <section id="about">
+</nav>
+
+<section id="about">
     <img src="Self.jpg" alt="Aftab Khan" class="photo">
     <h2>About Me</h2>
-    <p>I am a passionate data scientist with a B.Sc. in Data Science from the Viva college (Virar). My expertise includes data analysis, machine learning, and statistical modeling. I am driven by the challenge of solving complex problems and leveraging data to make informed decisions.</p>
-    <h3>Skills:</h3>
-    <ul>
-      <li><strong>Programming Languages:</strong> Python, R, SQL</li>
-      <li><strong>Data Analysis Tools:</strong> Pandas, NumPy, SciPy, Matplotlib, Seaborn</li>
-      <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, Keras</li>
-      <li><strong>Database Management:</strong> MySQL, PostgreSQL</li>
-      <li><strong>Data Visualization:</strong> Tableau, Power BI</li>
-      <li><strong>Big Data Technologies:</strong> Hadoop, Spark</li>
-      <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Flask</li>
-      <li><strong>Version Control:</strong> Git, GitHub</li>
+    <p style="text-align:center; max-width:700px; margin: auto;">I am a passionate data scientist with a B.Sc. in Data Science from Viva College (Virar). I specialize in data analysis, machine learning, and statistical modeling, and I enjoy solving complex problems with data.</p>
+    <h3 style="text-align:center; margin-top:2rem;">Skills</h3>
+    <ul class="skills">
+        <li><strong>Languages:</strong> Python, R, SQL</li>
+        <li><strong>Libraries:</strong> Pandas, NumPy, SciPy, Matplotlib, Seaborn</li>
+        <li><strong>ML Frameworks:</strong> Scikit-learn, TensorFlow, Keras</li>
+        <li><strong>Databases:</strong> MySQL, PostgreSQL</li>
+        <li><strong>Visualization:</strong> Tableau, Power BI</li>
+        <li><strong>Big Data:</strong> Hadoop, Spark</li>
+        <li><strong>Web:</strong> HTML, CSS, JavaScript, Flask</li>
+        <li><strong>Tools:</strong> Git, GitHub</li>
     </ul>
-  </section>
-  <section id="projects">
+</section>
+
+<section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <h3>Crypto Portfolio Management System</h3>
-      <ul>
-        <li>Developed a Flask web application to manage cryptocurrency investments.</li>
-        <li>Integrated live price data from Binance API.</li>
-        <li>Visualized portfolio distribution using Matplotlib.</li>
-      </ul>
-      <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4">View Project</a>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Crypto Portfolio Management System</h3>
+            <p>Flask web app to manage crypto investments with live Binance API updates.</p>
+            <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4?utm_source=share&utm_medium=member_desktop">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Customer Churn Prediction</h3>
+            <p>ML-based Flask app to predict customer churn. Used joblib, data preprocessing, and Flask-Login.</p>
+            <img src="https://github.com/aftabakhan82/customer_churn/assets/87515168/897ae49d-adae-4366-ac6b-f57ed491b263" alt="Customer Churn Prediction">
+        </div>
     </div>
-    <div class="project">
-      <h3>Customer Churn Prediction</h3>
-      <ul>
-        <li>Built a Flask app to predict customer churn using ML model.</li>
-        <li>Used joblib, Flask-Login, and visualized predictions.</li>
-      </ul>
-      <img src="https://github.com/aftabakhan82/customer_churn/assets/87515168/897ae49d-adae-4366-ac6b-f57ed491b263" alt="Customer Churn Prediction">
-    </div>
-  </section>
-  <section id="resume">
+</section>
+
+<section id="resume">
     <h2>Resume</h2>
-    <a href="resume.pdf">Download My Resume</a>
-  </section>
-  <section id="contact">
+    <p style="text-align:center;"><a href="resume.pdf" style="color:#985eff;">Download My Resume</a></p>
+</section>
+
+<section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:aftabakhan82@gmail.com">aftabakhan82@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">linkedin.com/in/aftab-khan</a></p>
-  </section>
-  <footer>
-    <p>&copy; 2024 Aftab Khan. All rights reserved.</p>
-  </footer>  <script>
+    <p style="text-align:center;">Reach me via email or LinkedIn.</p>
+    <p style="text-align:center;"><strong>Email:</strong> <a href="mailto:aftabakhan82@gmail.com" style="color:#985eff;">aftabakhan82@gmail.com</a></p>
+    <p style="text-align:center;"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank" style="color:#985eff;">linkedin.com/in/aftab-khan</a></p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Aftab Khan</p>
+</footer>
+
+<script>
     const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1 });
+
     sections.forEach(section => {
-      observer.observe(section);
+        observer.observe(section);
     });
-  </script></body>
+</script>
+
+</body>
 </html>
