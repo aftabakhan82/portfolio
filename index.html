@@ -1,180 +1,229 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aftab Khan's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aftab Khan's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-div {
-   text-align: center;
-     }
-header {
-    text-align: center;
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-}
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      background: linear-gradient(to right, #f0f2f5, #ffffff);
+      color: #333;
+      transition: all 0.3s ease;
+    }
 
-nav {
-    background: #444;
-}
+    header {
+      text-align: center;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 2rem 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
-}
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
 
-nav ul li {
-    margin: 0 1rem;
-}
+    nav {
+      background: #111;
+      padding: 0.8rem 0;
+    }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-section {
-    padding: 2rem;
-}
-.photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 20px;
-            display: block;
-        }
-h2 {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin-bottom: 0.5rem;
-}
-
-.project {
-    margin-bottom: 2rem;
-}
-
-.project img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0.5rem auto;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem 0;
-    background: #333;
-    color: #fff;
-    margin-top: 2rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #00b894;
+    }
+
+    section {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+      color: #2d3436;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      width: 60px;
+      height: 3px;
+      background: #00cec9;
+      display: block;
+      margin: 0.5rem auto;
+    }
+
+    .photo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #00cec9;
+      margin: 0 auto 20px;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+    }
+
+    .project {
+      background: white;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
     }
 
     .project img {
-        width: 100%;
+      width: 100%;
+      border-radius: 6px;
+      margin-top: 1rem;
     }
-}
-</style>
+
+    a {
+      color: #0984e3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: #2d3436;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .project {
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <h1>Aftab Khan</h1>
-        <p>Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
-    </header>
+  <header>
+    <h1>Aftab Khan</h1>
+    <p>Data Scientist | Machine Learning Enthusiast | Problem Solver</p>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <section id="about">
-        <div>
-              <img src="Self.jpg" alt="Aftab Khan" class="photo">
-        <h2>About Me</h2>
-        <p>I am a passionate data scientist with a B.Sc. in Data Science from the Viva college(Virar). My expertise includes data analysis, machine learning, and statistical modeling. I am driven by the challenge of solving complex problems and leveraging data to make informed decisions. In my spare time, I enjoy exploring new machine learning algorithms and contributing to open-source projects.</p>
-        </div>
-        <h3>Skills:</h3>
-        <ul>
-                    <li><strong>Programming Languages:</strong> Python, R, SQL</li>
-                    <li><strong>Data Analysis Tools:</strong> Pandas, NumPy, SciPy, Matplotlib, Seaborn</li>
-                    <li><strong>Machine Learning:</strong> Scikit-learn, TensorFlow, Keras</li>
-                    <li><strong>Database Management:</strong> MySQL, PostgreSQL</li>
-                    <li><strong>Data Visualization:</strong> Tableau, Power BI, Matplotlib, Seaborn</li>
-                    <li><strong>Big Data Technologies:</strong> Hadoop, Spark</li>
-                    <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Flask</li>
-                    <li><strong>Version Control:</strong> Git, GitHub</li>
-                    <li><strong>Soft Skills:</strong> Problem-solving, Analytical thinking, Communication, Team collaboration</li>
-                </ul>
-    </section>
+  <section id="about">
+    <img src="Self.jpg" alt="Aftab Khan" class="photo">
+    <h2>About Me</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+      I am a passionate data scientist with a B.Sc. in Data Science from Viva College (Virar). My expertise includes data analysis, machine learning, and statistical modeling. I enjoy solving complex problems and using data to drive smart decisions. In my spare time, I explore new ML algorithms and contribute to open-source.
+    </p>
+    <h3 style="margin-top: 2rem;">Skills</h3>
+    <ul>
+      <li><strong>Programming:</strong> Python, R, SQL</li>
+      <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, TensorFlow, Keras</li>
+      <li><strong>Databases:</strong> MySQL, PostgreSQL</li>
+      <li><strong>Visualization:</strong> Tableau, Power BI</li>
+      <li><strong>Big Data:</strong> Hadoop, Spark</li>
+      <li><strong>Web:</strong> HTML, CSS, JavaScript, Flask</li>
+      <li><strong>Tools:</strong> Git, GitHub</li>
+      <li><strong>Soft Skills:</strong> Communication, Teamwork, Problem-solving</li>
+    </ul>
+  </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Crypto Portfolio Management System</h3>
-           <ul>
-                    <li>Developed a Flask web application to manage and track cryptocurrency investments.</li>
-                    <li>Implemented CRUD operations to add, view, and delete transactions in a SQLite database.</li>
-                    <li>Integrated live cryptocurrency price data from Binance API to provide real-time updates.</li>
-                    <li>Created visualizations for portfolio distribution and profit/loss using Matplotlib.</li>
-                    <li>Generated interactive charts to display the portfolio's performance and profit/loss metrics.</li>
-                </ul>
-           <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4?utm_source=share&utm_medium=member_desktop"> Crypto Portfolio Management System </a>
-        </div>
-        <div class="project">
-            <h3>Customer Churn Prediction</h3>
-            <ul>
-                    <li>Built a Flask web application to predict customer churn using a machine learning model.</li>
-                    <li>Implemented user authentication and session management using Flask-Login.</li>
-                    <li>Developed a form to collect user data and convert it into a DataFrame for prediction.</li>
-                    <li>Used joblib to load pre-trained machine learning models and made predictions based on user inputs.</li>
-                    <li>Handled categorical data transformation and ensured the input data matched the model's training data schema.</li>
-                    <li>Displayed prediction results to the user and provided actionable insights.</li>
-                </ul>
-            <img src="https://github.com/aftabakhan82/customer_churn/assets/87515168/897ae49d-adae-4366-ac6b-f57ed491b263" alt="Customer Churn Prediction">
-        </div>
-           </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Crypto Portfolio Management System</h3>
+      <ul>
+        <li>Built a Flask app to track crypto investments using live Binance API.</li>
+        <li>CRUD operations with SQLite & real-time profit/loss visualizations.</li>
+        <li>Used Matplotlib for interactive charting.</li>
+      </ul>
+      <a href="https://www.linkedin.com/posts/aftab-khan-133406219_i-have-completed-the-crypto-portfolio-management-activity-7217534391500079104-omi4?utm_source=share&utm_medium=member_desktop" target="_blank">View Project</a>
+    </div>
 
-    <section id="resume">
-        <h2>Resume</h2>
-        <a href="resume.pdf"> My Resume</a>
-    </section>
+    <div class="project">
+      <h3>Customer Churn Prediction</h3>
+      <ul>
+        <li>Deployed ML model with Flask to predict customer churn.</li>
+        <li>Handled preprocessing, user input form, and output insights.</li>
+        <li>Used joblib, Flask-Login, and robust feature encoding.</li>
+      </ul>
+      <img src="https://github.com/aftabakhan82/customer_churn/assets/87515168/897ae49d-adae-4366-ac6b-f57ed491b263" alt="Customer Churn Prediction" />
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Feel free to reach out to me via email or connect with me on LinkedIn.</p>
-        <p><strong>Email:</strong> <a href="mailto:aftabakhan82@gmail.com">aftabakhan82@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">linkedin.com/in/aftab-khan-133406219</a></p>
-    </section>
+  <section id="resume">
+    <h2>Resume</h2>
+    <p style="text-align: center;"><a href="resume.pdf" target="_blank">Download Resume</a></p>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 Aftab Khan</p>
-    </footer>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align: center;">Feel free to connect or reach out:</p>
+    <p style="text-align: center;"><strong>Email:</strong> <a href="mailto:aftabakhan82@gmail.com">aftabakhan82@gmail.com</a></p>
+    <p style="text-align: center;"><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">linkedin.com/in/aftab-khan</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Aftab Khan | All Rights Reserved</p>
+  </footer>
 </body>
 </html>
