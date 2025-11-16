@@ -1,461 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aftab Khan's Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
-      background: linear-gradient(135deg, #e0e7ff 0%, #fdf6f0 100%);
-      color: #222;
-      scroll-behavior: smooth;
-      position: relative;
-      overflow-x: hidden;
-    }
-    /* Animated floating circles for background */
-    .bg-circles {
-      position: fixed;
-      top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 0;
-    }
-    .bg-circles span {
-      position: absolute;
-      display: block;
-      border-radius: 50%;
-      opacity: 0.18;
-      animation: float 18s ease-in-out infinite alternate;
-      filter: blur(2px);
-    }
-    .bg-circles span:nth-child(1){
-      width: 180px; height: 180px; background: #00c3ff;
-      left: 20vw; top: 10vh; animation-duration: 14s;
-    }
-    .bg-circles span:nth-child(2){
-      width: 120px; height: 120px; background: #ffd6e0;
-      left: 65vw; top: 15vh; animation-duration: 19s;
-    }
-    .bg-circles span:nth-child(3){
-      width: 90px; height: 90px; background: #fff176;
-      left: 50vw; top: 60vh; animation-duration: 16s;
-    }
-    .bg-circles span:nth-child(4){
-      width: 150px; height: 150px; background: #d1c4e9;
-      left: 80vw; top: 65vh; animation-duration: 22s;
-    }
-    .bg-circles span:nth-child(5){
-      width: 100px; height: 100px; background: #80deea;
-      left: 10vw; top: 72vh; animation-duration: 13s;
-    }
-    @keyframes float {
-      0%   { transform: translateY(0px) scale(1);}
-      100% { transform: translateY(-80px) scale(1.10);}
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftab Khan | Data Scientist</title>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 
-    header {
-      position: relative;
-      background: linear-gradient(120deg, #222 60%, #00c3ff 120%);
-      color: #fff;
-      padding: 4rem 2rem 2.5rem 2rem;
-      text-align: center;
-      z-index: 1;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
-      overflow: hidden;
-    }
-    .glow {
-      color: #fff;
-      text-shadow: 0 0 18px #00c3ff, 0 0 8px #fff;
-      letter-spacing: 2px;
-      font-size: 2.6rem;
-      animation: glowing 2.4s infinite alternate;
-    }
-    @keyframes glowing {
-      0% { text-shadow: 0 0 18px #00c3ff, 0 0 8px #fff;}
-      100% { text-shadow: 0 0 32px #00c3ff, 0 0 18px #fff;}
-    }
-    .subtitle {
-      font-size: 1.2rem;
-      margin-top: 1rem;
-      letter-spacing: 1.5px;
-      font-weight: 400;
-      opacity: 0.87;
-    }
+    <style>
+        /* --- 1. Global Reset and Variables (Light/Glass Theme) --- */
+        :root {
+            --color-bg: #f5f5f5;          
+            --color-surface: #ffffff;     
+            --color-dark-text: #2c3e50;   
+            --color-subtle-text: #7f8c8d; 
+            --color-accent: #009688;      /* Teal Accent */
+            --color-shadow: rgba(0, 0, 0, 0.15); /* Stronger shadow for depth */
+            --font-header: 'Montserrat', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
 
-    .photo {
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      object-fit: cover;
-      display: block;
-      margin: 2rem auto 1.5rem;
-      box-shadow: 0 0 32px #00c3ff77, 0 4px 28px rgba(0,0,0,0.13);
-      border: 6px solid #fff;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.33s cubic-bezier(.5,1.8,.8,1.2);
-    }
-    .photo:hover {
-      transform: scale(1.08) rotate(-3deg);
-      box-shadow: 0 0 48px #00c3ffdd, 0 10px 54px rgba(0,0,0,0.23);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    section {
-      padding: 4rem 2rem;
-      max-width: 950px;
-      margin: 0 auto 2rem auto;
-      background: rgba(255,255,255,0.95);
-      border-radius: 18px;
-      box-shadow: 0 2px 24px rgba(0,0,0,0.06);
-      opacity: 0;
-      transform: translateY(30px) scale(0.97);
-      transition: all 1.1s cubic-bezier(.7,.3,.3,1);
-      z-index: 1;
-      position: relative;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      font-size: 2.2rem;
-      font-weight: 600;
-      background: linear-gradient(90deg,#00c3ff, #7b2ff2);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      -webkit-text-fill-color: transparent;
-      letter-spacing: 1.5px;
-      position: relative;
-    }
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-dark-text);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
 
-    ul {
-      padding: 0;
-      list-style: none;
-    }
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
 
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.2rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-    .skills-list li {
-      background: linear-gradient(90deg,#e0e7ff 30%, #00c3ff20 100%);
-      color: #333;
-      border-radius: 8px;
-      padding: 0.7rem 1.5rem;
-      font-size: 1.08rem;
-      font-weight: 500;
-      box-shadow: 0 1px 10px #00c3ff11;
-      margin-bottom: 0.5rem;
-      transition: background 0.4s;
-      border: 1.5px solid #00c3ff30;
-    }
-    .skills-list li:hover {
-      background: linear-gradient(90deg,#00c3ff33 60%, #fff 100%);
-      color: #111;
-      transform: scale(1.09);
-    }
+        a:hover {
+            color: var(--color-dark-text);
+            opacity: 0.9;
+        }
 
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem;
-      justify-content: center;
-      animation: slideIn 2s ease-in-out;
-      margin-top: 2.5rem;
-    }
-    .project-card {
-      background: linear-gradient(135deg, #f5faff 70%, #e3e0ff 100%);
-      box-shadow: 0 4px 20px rgba(0, 195, 255, 0.08);
-      border-radius: 16px;
-      width: 320px;
-      padding: 1.8rem 1.2rem 1.3rem 1.2rem;
-      transition: transform 0.4s cubic-bezier(.5,1.8,.8,1.2), box-shadow 0.4s;
-      border: 1.5px solid #00c3ff22;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card:before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, #00c3ff33, transparent 80%);
-      z-index: 0; pointer-events: none;
-    }
-    .project-card:hover {
-      transform: translateY(-8px) scale(1.045) rotate(-2deg);
-      box-shadow: 0 12px 40px #00c3ff22, 0 2px 22px #7b2ff233;
-      border-color: #00c3ff66;
-    }
-    .project-card h3 {
-      margin-top: 0; margin-bottom: 1rem;
-      font-size: 1.35rem;
-      background: linear-gradient(90deg, #7b2ff2 40%, #00c3ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      font-weight: 600;
-    }
-    .project-card p {
-      font-size: 1rem;
-      min-height: 66px;
-    }
-    .project-card img {
-      width: 100%;
-      border-radius: 9px;
-      margin-bottom: 1.2rem;
-      box-shadow: 0 2px 16px #00c3ff13;
-      transition: transform 0.28s cubic-bezier(.5,1.8,.8,1.2);
-    }
-    .project-card img:hover {
-      transform: scale(1.06) rotate(-1deg);
-    }
-    .project-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      color: #fff;
-      background: linear-gradient(90deg,#00c3ff 60%, #7b2ff2 100%);
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      box-shadow: 0 2px 10px #00c3ff22;
-      transition: background 0.27s, transform 0.22s;
-      font-size: 1.02rem;
-    }
-    .project-card a:hover {
-      background: linear-gradient(90deg,#7b2ff2 60%, #00c3ff 100%);
-      transform: scale(1.07);
-    }
+        h1, h2, h3 {
+            color: var(--color-dark-text);
+            font-family: var(--font-header);
+            font-weight: 900;
+        }
 
-    /* Section reveal animation */
-    @keyframes slideIn {
-      from {
-        transform: translateX(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
+        section {
+            padding: 100px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        hr {
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            margin: 0 5%;
+        }
 
-    .resume-link {
-      display: inline-block;
-      margin: 2rem auto 0 auto;
-      padding: 0.8rem 2.2rem;
-      background: linear-gradient(90deg, #00c3ff 60%, #7b2ff2 100%);
-      color: #fff;
-      border-radius: 8px;
-      font-size: 1.18rem;
-      font-weight: 600;
-      letter-spacing: 1.1px;
-      text-decoration: none;
-      box-shadow: 0 4px 16px #00c3ff33;
-      transition: background 0.3s, transform 0.23s;
-    }
-    .resume-link:hover {
-      background: linear-gradient(90deg,#7b2ff2 60%, #00c3ff 100%);
-      transform: scale(1.06);
-    }
+        /* --- 2. Header and Navigation (Glassmorphism Effect) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); 
+            box-shadow: 0 1px 4px var(--color-shadow);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-    .contact-info {
-      text-align: center;
-      font-size: 1.15rem;
-      margin-top: 2rem;
-    }
-    .contact-info a {
-      color: #00c3ff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .contact-info a:hover {
-      color: #7b2ff2;
-      text-decoration: underline;
-    }
-    .wave {
-      display: inline-block;
-      animation: wave-hand 1.7s infinite;
-      font-size: 2.1rem;
-      margin-right: 0.2em;
-    }
-    @keyframes wave-hand {
-      0% { transform: rotate(0deg);}
-      10% { transform: rotate(14deg);}
-      20% { transform: rotate(-8deg);}
-      30% { transform: rotate(14deg);}
-      40% { transform: rotate(-4deg);}
-      50% { transform: rotate(10deg);}
-      60% { transform: rotate(0deg);}
-      100% { transform: rotate(0deg);}
-    }
+        .logo {
+            font-size: 24px;
+            color: var(--color-accent);
+        }
 
-    footer {
-      text-align: center;
-      padding: 2rem 0 1rem 0;
-      background: #222;
-      color: #fff;
-      font-size: 1rem;
-      letter-spacing: 1px;
-      z-index: 2;
-      position: relative;
-      margin-top: 2rem;
-    }
+        nav a {
+            margin-left: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-size: 14px;
+            color: var(--color-dark-text);
+        }
 
-    @media (max-width: 900px) {
-      section {
-        padding: 2.5rem 0.5rem;
-      }
-      .projects { flex-direction: column; align-items: center; }
-      .project-card { width: 98vw; max-width: 370px; }
-    }
-    @media (max-width: 600px) {
-      header { padding: 2.5rem 0.5rem 1.5rem 0.5rem;}
-      .photo { width: 120px; height: 120px;}
-      h2 { font-size: 1.5rem;}
-      .project-card { padding: 1rem 0.5rem;}
-    }
-  </style>
+        /* --- 3. Hero Section --- */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 9vw, 84px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 15px;
+            font-weight: 400;
+            font-family: var(--font-body);
+        }
+
+        .highlight {
+            color: var(--color-accent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 14px 35px;
+            background-color: var(--color-accent);
+            color: var(--color-surface);
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .cta-button:hover {
+            background-color: #00796b; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 150, 136, 0.4);
+        }
+
+        /* --- 4. About Section (Asymmetrical Grid) --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Asymmetrical split */
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text {
+            padding-right: 20px;
+        }
+        .about-image-placeholder {
+            min-height: 300px;
+            background: linear-gradient(135deg, var(--color-accent), #00bcd4);
+            border-radius: 12px;
+            box-shadow: 8px 8px 0px rgba(0, 150, 136, 0.2); /* Floating effect */
+        }
+        .about h2 {
+            margin-bottom: 30px;
+        }
+        .about strong {
+            color: var(--color-dark-text);
+            font-weight: 700;
+        }
+
+        /* --- 5. Skills Section (Advanced Skill Bars) --- */
+        .skills h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        /* Advanced Skill Bar Styling */
+        .skill-group {
+            padding: 25px;
+            background: var(--color-surface);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--color-shadow);
+        }
+
+        .skill-group h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-label {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--color-dark-text);
+        }
+
+        .skill-bar {
+            background: #eee;
+            border-radius: 5px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--color-accent);
+            width: 0; /* Starts at zero */
+            transition: width 1.5s ease-out; /* Animation effect */
+        }
+        
+        /* --- 6. Project Section (3D Depth Hover) --- */
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+
+        .project-card {
+            background-color: var(--color-bg);
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px var(--color-shadow);
+            transition: box-shadow 0.3s, transform 0.3s;
+            transform: perspective(1000px) rotateX(0deg) translateZ(0); /* Setup for 3D */
+        }
+
+        .project-card:hover {
+            box-shadow: 0 10px 25px var(--color-shadow);
+            border-color: var(--color-accent);
+            transform: perspective(1000px) rotateX(1deg) translateZ(10px); /* Lift and tilt */
+        }
+
+        .project-card h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--color-accent);
+        }
+        
+        .project-links a {
+            font-weight: 700;
+            padding: 8px 15px;
+            border: 1px solid var(--color-accent);
+            border-radius: 4px;
+            color: var(--color-accent);
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .project-links a:hover {
+            background-color: var(--color-accent);
+            color: var(--color-surface);
+            opacity: 1;
+        }
+        
+        /* --- 7. Contact Section --- */
+        .contact {
+            text-align: center;
+            background-color: var(--color-surface);
+            padding: 80px 5%;
+        }
+
+        /* --- 8. Footer --- */
+        footer {
+            padding: 20px 5%;
+            text-align: center;
+            font-size: 14px;
+            color: var(--color-subtle-text);
+            background-color: var(--color-surface);
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* ==================================== */
+        /* === MOBILE RESPONSIVENESS (CSS) ==== */
+        /* ==================================== */
+        @media (max-width: 900px) {
+            .about-container {
+                grid-template-columns: 1fr; /* Stack columns vertically on smaller screens */
+            }
+            .about-image-placeholder {
+                min-height: 200px;
+                order: -1; /* Place image above text on mobile */
+                margin-bottom: 30px;
+            }
+        }
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 5%; 
+            }
+            header {
+                flex-direction: column;
+                padding: 15px 5%;
+            }
+            .logo {
+                margin-bottom: 10px;
+            }
+            nav {
+                width: 100%;
+                text-align: center;
+            }
+            nav a {
+                margin: 0 8px; 
+                font-size: 12px;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr; 
+            }
+            .project-links {
+                display: flex;
+                flex-direction: column;
+            }
+            .project-links a {
+                margin-right: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="bg-circles">
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>
-  <header>
-    <div class="wave">👋</div>
-    <h1 class="glow">Aftab Khan</h1>
-    <img src="Self.jpg" alt="Aftab Khan" class="photo">
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p style="max-width: 800px; margin: auto; text-align:center; font-size:1.16rem;">
-      Hi! I'm Aftab, a passionate data scientist with a B.Sc. in Data Science from Viva College.<br>
-      I love turning data into actionable insights, building ML models, and solving real-world problems with code & creativity.
-    </p>
-    <h3 style="text-align:center; margin:2.7rem 0 0.6rem 0; font-size:1.18rem; letter-spacing:1.1px;">Skills</h3>
-    <ul class="skills-list">
-      <li><strong>Python</strong></li>
-      <li><strong>R</strong></li>
-      <li><strong>SQL</strong></li>
-      <li>Pandas</li>
-      <li>NumPy</li>
-      <li>Matplotlib</li>
-      <li>Seaborn</li>
-      <li>TensorFlow</li>
-      <li>Keras</li>
-      <li>Scikit-learn</li>
-      <li>Tableau</li>
-      <li>Power BI</li>
-      <li>HTML</li>
-      <li>CSS</li>
-      <li>JavaScript</li>
-      <li>Flask</li>
-      <li>Communication</li>
-      <li>Teamwork</li>
-      <li>Problem-solving</li>
-    </ul>
-  </section>
+    <header>
+        <div class="logo">Aftab Khan</div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Work</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
 
-  <section id="projects">
-<h2>Projects</h2>
-<div class="projects">
-  <div class="project-card">
-    <h3>Sales Management Dashboard</h3>
-    <p>Interactive dashboard to analyze sales data with visualizations like trends, region-wise sales, discounts impact, and payment methods using Python, Flask, and Matplotlib/Seaborn.</p>
-    <a href="https://c2e3-34-75-93-111.ngrok-free.app/" target="_blank">View Project</a>
-  </div>
-  <div class="project-card">
-    <h3>Customer Churn Prediction</h3>
-    <p>ML model deployed via Flask to predict churn, includes user form input, data transformation, and joblib model loading.</p>
-    <a href="https://github.com/aftabakhan82/churn" target="_blank" >View Project</a>
-  </div>
-  <div class="project-card">
-    <h3>Choice Collection Ecommecre Website</h3>
-    <p>E-commerce Functionalities
-User Authentication (login/register)
+    <section id="hero" class="hero">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <p class="subtitle">Aftab Khan | Data Scientist</p>
+            <h1>
+                Architecting Insights with <span class="highlight">Precision</span><br>
+                and Pythonic Power.
+            </h1>
+            <p>I specialize in building robust data pipelines, developing predictive models using <strong>Python</strong>, and transforming complex data into actionable strategies across e-commerce and logistics.</p>
+            <a href="#projects" class="cta-button">View My Work &rarr;</a>
+        </div>
+    </section>
 
-Product Listing with Images, Prices, Descriptions
+    <hr>
 
-Add to Cart
+    <section id="about" class="about" data-aos="fade-up">
+        <h2>About Aftab Khan</h2>
+        <div class="about-container">
+            <div class="about-image-placeholder" data-aos="zoom-in" data-aos-delay="200">
+              <img src="self.jpg"></img>
+                </div>
+            <div class="about-text">
+                <p>I am a passionate <strong>Data Scientist</strong> with a strong foundation in statistical analysis, machine learning, and data engineering. My focus is on leveraging <strong>Python</strong> and advanced analytical techniques to solve real-world business challenges, particularly in e-commerce and logistics.</p>
+                <p>My workflow is rooted in efficiency and best practices. I use <strong>VS Code</strong> for a seamless development experience and <strong>Git</strong> for version control, ensuring collaborative and maintainable codebases. I thrive on bringing structure to unstructured data and delivering tangible business value through data-driven insights.</p>
+            </div>
+        </div>
+    </section>
 
-Checkout with Payment Integration
+    <hr>
 
-Order Confirmation
+    <section id="skills" class="skills">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
+                <h3>Data Science Core</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Python (Pandas, NumPy)</span> <span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Machine Learning (Scikit-learn)</span> <span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Statistical Modeling</span> <span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 75%;"></div></div>
+                </div>
+            </div>
 
-Search & Filters (by category, price, etc.)</p>
-    <a href="https://choicecollection.shop" target="_blank" >View Project</a>
-  </div>
-</div>
+            <div class="skill-group" data-aos="fade-up" data-aos-delay="200">
+                <h3>Development Tools</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>SQL (PostgreSQL, MySQL)</span> <span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>VS Code & Git</span> <span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>HTML, CSS, JavaScript</span> <span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+                </div>
+            </div>
 
-  </section>
+            <div class="skill-group" data-aos="fade-up" data-aos-delay="300">
+                <h3>Cloud & Engineering</h3>
+                <div class="skill-item">
+                    <div class="skill-label"><span>ETL Pipeline Design</span> <span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>AWS/GCP Basics</span> <span>65%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 65%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-label"><span>Containerization (Docker)</span> <span>70%</span></div>
+                    <div class="skill-bar"><div class="skill-level" style="width: 70%;"></div></div>
+                </div>
+            </div>
 
-  <section id="resume">
-    <h2>Resume</h2>
-    <div style="text-align:center;">
-      <a class="resume-link" href="Aftab Abdul Aziz Khan - Resume" target="_blank">Download Resume</a>
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="contact-info">
-      Reach me at <a href="mailto:aftabakhan82@gmail.com">aftabakhan82@gmail.com</a><br>
-      <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">LinkedIn</a>
-    </div>
-  </section>
+    <hr>
 
-  <footer>
-    <p>&copy; 2024 Aftab Khan</p>
-  </footer>
-  <script>
-    // Reveal sections on scroll (every time they enter the viewport)
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
-        }
-      });
-    }, { threshold: 0.2 });
+    <section id="projects" class="projects">
+        <h2>Featured Data Projects</h2>
+        
+        <div class="project-card" data-aos="fade-left" data-aos-offset="300">
+            <h3>StoryNest: Content Recommendation Engine</h3>
+            <h4>Data Science & Machine Learning</h4>
+            <p>Developed a hybrid content-based and collaborative filtering recommendation system for a platform like <strong>StoryNest</strong>. The system uses user behavior and content features to suggest personalized stories/articles. It was built and trained using <strong>Python</strong> and <strong>Scikit-learn</strong>, significantly boosting user engagement and time on site.</p>
+            <div class="tech-list">Python, Pandas, Scikit-learn, FastAPI, Git, VS Code.</div>
+            <div class="project-links">
+                <a href="https://github.com/aftabakhan82/storynest-engine" target="_blank">View GitHub Repo</a>
+                <a href="#">Simulated Case Study</a>
+            </div>
+        </div>
 
-    sections.forEach(section => observer.observe(section));
+        <div class="project-card" data-aos="fade-right" data-aos-offset="300">
+            <h3>Choice Collection E-commerce Site & Analytics</h3>
+            <h4>Web Development, E-commerce, and Data Analysis</h4>
+            <p><strong>Designed and developed the choicecollection.shop e-commerce platform.</strong> This included building the front-end user experience and integrating necessary sales analytics. Also conducted a deep-dive analysis on sales and inventory data to forecast optimal stock levels.</p>
+            <div class="tech-list">HTML, CSS, JavaScript, E-commerce Platforms, SQL, Python (Pandas).</div>
+            <div class="project-links">
+                <a href="https://choicecollection.shop" target="_blank">View Live E-commerce Site</a>
+            </div>
+        </div>
 
-    // Add a little sparkle effect to the header
-    function createSparkle(x, y) {
-      const sparkle = document.createElement('span');
-      sparkle.style.position = 'absolute';
-      sparkle.style.left = x + 'px';
-      sparkle.style.top = y + 'px';
-      sparkle.style.width = '10px';
-      sparkle.style.height = '10px';
-      sparkle.style.background = 'radial-gradient(circle,#fff,#00c3ff88 50%,transparent 80%)';
-      sparkle.style.borderRadius = '50%';
-      sparkle.style.pointerEvents = 'none';
-      sparkle.style.opacity = 0.85;
-      sparkle.style.zIndex = 2;
-      sparkle.style.transition = 'opacity 1.3s, transform 1.3s';
-      document.body.appendChild(sparkle);
-      setTimeout(() => {
-        sparkle.style.opacity = 0;
-        sparkle.style.transform = 'scale(2)';
-      }, 30);
-      setTimeout(() => { sparkle.remove(); }, 1300);
-    }
-    document.querySelector('header').addEventListener('mousemove', e => {
-      if (Math.random() < 0.16)
-        createSparkle(e.clientX, e.clientY);
-    });
-  </script>
+        <div class="project-card" data-aos="fade-left" data-aos-offset="300">
+            <h3>SK Food Equipment Website Design and Development</h3>
+            <h4>Digital Presence & Web Development</h4>
+            <p><strong>Designed, developed, and optimized the skfoodequipment.in corporate website.</strong> Focused on creating a professional digital presence, ensuring site responsiveness, fast loading times, and implementing robust web analytics for tracking business inquiries.</p>
+            <div class="tech-list">HTML, CSS, JavaScript, Web Hosting, Google Analytics, SEO Data Structuring.</div>
+            <div class="project-links">
+                <a href="https://skfoodequipment.in" target="_blank">View Live Website</a>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" class="contact">
+        <h2 data-aos="fade-up">Let's Connect and Discuss Data.</h2>
+        <p data-aos="fade-up" data-aos-delay="100">I am open to new collaborations and data challenges. Feel free to reach out via email or connect on social platforms.</p>
+        <a href="mailto:aftabakhan82@gmail.com" class="cta-button" data-aos="zoom-in" data-aos-delay="200">Email Aftab Khan &rarr;</a>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/aftabakhan82" target="_blank">GitHub</a>
+            <a href="mailto:aftabakhan82@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/aftab-khan-133406219/" target="_blank">LinkedIn</a> 
+        </div>
+        <p>&copy; 2025 Aftab Khan. Data Scientist.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS library after the page loads
+        document.addEventListener('DOMContentLoaded', (event) => {
+            AOS.init({
+                duration: 800, // animation duration
+                once: true,    // animation only happens once per element
+            });
+            
+            // Script to initialize skill bar animations
+            const skillLevels = document.querySelectorAll('.skill-level');
+            skillLevels.forEach(skill => {
+                const width = skill.style.width;
+                // Wait for AOS to initialize, then apply the width
+                setTimeout(() => {
+                    skill.style.width = width;
+                }, 100); 
+            });
+        });
+    </script>
+
 </body>
 </html>
